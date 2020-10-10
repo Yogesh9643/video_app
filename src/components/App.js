@@ -1,12 +1,16 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import youtube from '../apis/youtube';
 import SearchBar from './SeachBar';
 
 class App extends React.Component {
     onTermSubmit=(term)=>{
-        console.log(term);
+        youtube.get('/search',{
+            params:{
+                q:term
+            }
+        });
 
-    }
+    };
     render() {
         return (
             <div className="ui container">
